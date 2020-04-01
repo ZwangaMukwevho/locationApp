@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       home: HomeScreen(),
       routes: {
         '/user_details': (ctx) => UserDetailsScreen(),
+        '/user_details2': (ctx) => UserDetailsScreen2(),
       },
     );
   }

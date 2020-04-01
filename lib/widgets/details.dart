@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:intl/intl.dart';
+
+var now = new DateTime.now();
+var formatter = new DateFormat('yyyy-MM-dd');
+String formattedDate = formatter.format(now);
 
 class Details extends StatelessWidget {
   final String info;
   Details(this.info);
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +37,7 @@ class Details extends StatelessWidget {
             padding: EdgeInsets.all(8),
             child: ListTile(
               title: Text('$info'),
-              trailing: Text('06/02/2020 23:30'),
+              trailing: Text('$formattedDate'),
             )),
       ),
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../screens/user_details_screen.dart';
 
 class HomeLayout2 extends StatelessWidget {
   @override
@@ -74,7 +73,7 @@ class HomeLayout3 extends StatelessWidget {
 
     void selectCategory(BuildContext ctx) {
       Navigator.of(ctx).pushNamed(
-        '/user_details',
+        '/user_details2',
         arguments: { 'title' : 'Your Address'}
       );
       }

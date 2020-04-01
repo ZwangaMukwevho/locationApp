@@ -81,3 +81,84 @@ class UserDetailsScreen extends StatelessWidget {
         ));
   }
 }
+
+
+class UserDetailsScreen2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final userdetails = new UserDetails();
+    // Exctracting route arguments
+    final routeArgs =
+        ModalRoute.of(context).settings.arguments as Map<String, String>;
+    final categoryTitle = routeArgs['title'];
+
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(categoryTitle),
+        ),
+        body: Column(
+          children: <Widget>[
+            Card(
+              margin: EdgeInsets.all(15),
+              child: Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text('Current Address'),
+                      Spacer(),
+                      Chip(
+                        label: Text(
+                          '${userdetails.currentAddresslength.toStringAsFixed(0)}',
+                          style: TextStyle(
+                            color:
+                                Theme.of(context).primaryTextTheme.title.color,
+                          ),
+                        ),
+                        backgroundColor: Theme.of(context).primaryColor,
+                      ),
+                    ],
+                  )),
+            ),
+            SizedBox(height: 5),
+            Expanded(
+              child: ListView.builder(
+                itemCount: userdetails.currentAddresslength,
+                itemBuilder: (ctx,i) => Details(userdetails.caddress[i]),
+              ),
+            ),
+            SizedBox(height:15), 
+                Card(
+              margin: EdgeInsets.all(15),
+              child: Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text('Previous Address'),
+                      Spacer(),
+                      Chip(
+                        label: Text(
+                          '${userdetails.previousAddresslength.toStringAsFixed(0)}',
+                          style: TextStyle(
+                            color:
+                                Theme.of(context).primaryTextTheme.title.color,
+                          ),
+                        ),
+                        backgroundColor: Theme.of(context).primaryColor,
+                      ),
+                    ],
+                  )),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: userdetails.previousAddresslength,
+                itemBuilder: (ctx,i) => Details(userdetails.paddress[i]),
+              ),
+            ),
+             SizedBox(height:5)
+
+          ],
+        ));
+  }
+}
