@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../screens/add_contact.dart';
 
 
 class AppDrawer extends StatelessWidget {
@@ -19,9 +20,9 @@ class AppDrawer extends StatelessWidget {
           Divider(),
           ListTile(
             leading: Icon(Icons.add_call),
-            title: Text('Add contact'),
+            title: Text('Manage contacts'),
             onTap:() {
-             // Navigator.of(context).pushReplacementNamed('/');
+             Navigator.of(context).pushNamed('/add-contact');
             }
           ),
           Divider(),
@@ -31,6 +32,7 @@ class AppDrawer extends StatelessWidget {
             onTap:() {
               //Navigator.of(context).pushReplacementNamed(OrdersScreen.routeName);
             }
+            
           ),
         ],
       ),
